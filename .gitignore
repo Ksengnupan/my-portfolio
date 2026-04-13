@@ -1,4 +1,24 @@
-.DS_Store
-.claude/
+# dependencies
 node_modules/
+.pnp
+.pnp.js
+
+# next.js
+.next/
+out/
+build/
+
+# production
+dist/
+
+# misc
+.DS_Store
 *.log
+.env*.local
+
+# claude
+.claude/
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

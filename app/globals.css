@@ -329,7 +329,7 @@ section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .about-text p {
@@ -735,7 +735,7 @@ section {
 
 .award-item {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   gap: 14px;
   background: var(--white);
   border: 1px solid var(--gray-200);
@@ -771,7 +771,7 @@ section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .contact-info h3 {
@@ -873,7 +873,7 @@ section {
 .footer-content {
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
   margin-bottom: 32px;
 }
 
