@@ -13,22 +13,6 @@ type Project = {
 
 const projects: Project[] = [
   {
-    icon: "🛡",
-    company: "Cynclair (R V Connex)",
-    date: "Mar 2024 — May 2025",
-    title: "LLM-Powered Cybersecurity Assistant",
-    description:
-      "Production-grade chatbot for cyber security incident investigation using Neo4j knowledge graphs and LLM models. Built a real-time alert investigation pipeline integrated with AWS architecture.",
-    achievements: [
-      "Production-level deployment on AWS",
-      "Real-time alert investigation pipeline",
-      "Neo4j knowledge graph integration",
-      "End-to-end LLM orchestration",
-    ],
-    tags: ["LLM", "Neo4j", "PostgreSQL", "AWS", "RAG", "Python"],
-    featured: true,
-  },
-  {
     icon: "📄",
     company: "Personal Project",
     date: "June 2024",
@@ -56,34 +40,6 @@ const projects: Project[] = [
     ],
     tags: ["Java", "Spring Boot", "PostgreSQL", "REST API"],
   },
-  {
-    icon: "🌍",
-    company: "SIIT, Thammasat University",
-    date: "Aug 2022 — Jun 2024",
-    title: "PM2.5 Prediction in Northern Thailand",
-    description:
-      "Master's thesis integrating NASA satellite data with ground weather stations for enhanced air quality prediction using deep learning.",
-    achievements: [
-      "Published at IEEE iSAI-NLP 2023",
-      "LSTM & Bi-LSTM time-series models",
-      "Multi-source data integration pipeline",
-    ],
-    tags: ["TensorFlow", "LSTM", "Python", "Research"],
-  },
-  {
-    icon: "📱",
-    company: "University Project",
-    date: "November 2019",
-    title: "INTERN Seeker — Internship Discovery",
-    description:
-      "Mobile application connecting graduating students with internship opportunities. Led the team to First Prize in university competition.",
-    achievements: [
-      "First Prize in university competition",
-      "End-to-end mobile development",
-      "Team leadership & project management",
-    ],
-    tags: ["Java", "Android", "MySQL", "Leadership"],
-  },
 ];
 
 export default function Projects() {
@@ -97,8 +53,7 @@ export default function Projects() {
           What I&apos;ve Built
         </FadeIn>
         <FadeIn as="p" className="section-subtitle">
-          A selection of projects showcasing my work across LLM engineering,
-          full-stack development, and ML research.
+          A selection of projects showcasing my work across LLM engineering and development.
         </FadeIn>
 
         <div className="projects-grid">
@@ -107,20 +62,17 @@ export default function Projects() {
               key={p.title}
               className={`project-card${p.featured ? " featured" : ""}`}
             >
-              {p.featured ? (
-                <>
+              <div className={p.featured ? "featured-main" : ""}>
+                <div className="project-meta">
                   <div>
-                    <div className="project-meta">
-                      <div className="project-icon">{p.icon}</div>
-                      <div>
-                        <div className="project-company">{p.company}</div>
-                        <div className="project-date">{p.date}</div>
-                      </div>
-                    </div>
-                    <h3>{p.title}</h3>
-                    <p>{p.description}</p>
+                    <div className="project-company">{p.company}</div>
+                    <div className="project-date">{p.date}</div>
                   </div>
-                  <div>
+                </div>
+                <h3>{p.title}</h3>
+                <p>{p.description}</p>
+                {!p.featured && (
+                  <>
                     <ul className="project-achievements">
                       {p.achievements.map((a) => (
                         <li key={a}>{a}</li>
@@ -133,19 +85,11 @@ export default function Projects() {
                         </span>
                       ))}
                     </div>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="project-meta">
-                    <div className="project-icon">{p.icon}</div>
-                    <div>
-                      <div className="project-company">{p.company}</div>
-                      <div className="project-date">{p.date}</div>
-                    </div>
-                  </div>
-                  <h3>{p.title}</h3>
-                  <p>{p.description}</p>
+                  </>
+                )}
+              </div>
+              {p.featured && (
+                <div className="featured-details">
                   <ul className="project-achievements">
                     {p.achievements.map((a) => (
                       <li key={a}>{a}</li>
@@ -158,7 +102,7 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
-                </>
+                </div>
               )}
             </FadeIn>
           ))}

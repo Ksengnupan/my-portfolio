@@ -5,22 +5,19 @@ export default function Footer() {
         <div className="footer-content">
           <div>
             <div className="footer-brand">
-              Seng Nu <span>Pan</span>
+              Seng Nu Pan Kumgyi
             </div>
-            <p className="footer-tagline">AI Engineer • LLM Specialist</p>
+            <p className="footer-tagline">AI Engineer • Developer</p>
           </div>
           <ul className="footer-links">
             <li>
               <a href="#about">About</a>
             </li>
             <li>
-              <a href="#projects">Projects</a>
-            </li>
-            <li>
-              <a href="#skills">Skills</a>
-            </li>
-            <li>
               <a href="#experience">Experience</a>
+            </li>
+            <li>
+              <a href="#projects">Projects</a>
             </li>
             <li>
               <a href="#contact">Contact</a>
@@ -52,7 +49,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          &copy; {new Date().getFullYear()} Seng Nu Pan. All rights reserved.
+          &copy; {new Date().getFullYear()} Seng Nu Pan Kumgyi.
         </div>
       </div>
     </footer>

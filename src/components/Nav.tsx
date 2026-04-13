@@ -4,9 +4,8 @@ import { useEffect, useRef, useState } from "react";
 
 const links = [
   { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },
+  { href: "#projects", label: "Projects" },
   { href: "#education", label: "Education" },
 ];
 
@@ -41,7 +40,7 @@ export default function Nav() {
     <nav ref={navRef} className={`nav${scrolled ? " scrolled" : ""}`}>
       <div className="container">
         <a href="#" className="nav-logo">
-          Seng Nu <span>Pan</span>
+          Seng Nu Pan
         </a>
         <ul className={`nav-links${open ? " open" : ""}`}>
           {links.map((l) => (

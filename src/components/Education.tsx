@@ -1,23 +1,34 @@
 import FadeIn from "./FadeIn";
 
-const items = [
+type EducationItem = {
+  degree: string;
+  school: string;
+  schoolUrl?: string;
+  period: string;
+  detail: string;
+};
+
+const items: EducationItem[] = [
   {
     degree: "M.Eng. in AI & Internet of Things",
     school: "SIIT, Thammasat University",
+    schoolUrl: "https://www.siit.tu.ac.th/",
     period: "Aug 2022 — Jun 2024",
     detail:
-      "GPA: 3.91/4.00. Thesis on PM2.5 prediction enhancement using satellite and ground data integration.",
+      "GPA: 3.91/4.00. Research on PM2.5 prediction enhancement using satellite and ground data integration.",
   },
   {
     degree: "Research Exchange Program",
-    school: "Tokyo Institute of Technology",
+    school: "Institute of Science and Technology (Formerly Tokyo Institute of Technology)",
+    schoolUrl: "https://www.titech.ac.jp/english",
     period: "Sep — Dec 2023",
     detail:
-      "Research presentation and collaboration at one of Japan's top science and engineering universities.",
+      "Exchange student at one of Japan's top science and engineering universities.",
   },
   {
     degree: "B.Eng. in Information Science & Technology",
     school: "University of Technology, Myanmar",
+    schoolUrl: "https://utycc.org/",
     period: "Dec 2013 — Feb 2020",
     detail:
       "CGPA: 3.90/4.00. Strong foundation in computer science and software engineering.",
@@ -43,7 +54,20 @@ export default function Education() {
           {items.map((e) => (
             <div key={e.degree} className="education-card">
               <div className="degree">{e.degree}</div>
-              <div className="school">{e.school}</div>
+              <div className="school">
+                {e.schoolUrl ? (
+                  <a
+                    href={e.schoolUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="company-link"
+                  >
+                    {e.school}
+                  </a>
+                ) : (
+                  e.school
+                )}
+              </div>
               <div className="period">{e.period}</div>
               <div className="detail">{e.detail}</div>
             </div>

@@ -2,22 +2,21 @@ import FadeIn from "./FadeIn";
 
 const awards = [
   {
-    icon: "🏆",
     title: "First Prize — INTERN Seeker App",
     sub: "University mobile development competition, 2019",
   },
   {
-    icon: "⭐",
     title: "Best Volunteer Special Award",
     sub: "Hungry To Learn English Center (HLEC), 2020",
   },
+];
+
+const volunteering = [
   {
-    icon: "🤝",
     title: "Chairperson & Lead Facilitator",
     sub: "HLEC — Leadership & community organizing, 2020",
   },
   {
-    icon: "🌏",
     title: "Program Developer & Organizer",
     sub: "Global Mind Youth Group, 2020",
   },
@@ -54,16 +53,28 @@ export default function Publications() {
           </a>
         </FadeIn>
 
-        <FadeIn className="awards-grid">
-          {awards.map((a) => (
-            <div key={a.title} className="award-item">
-              <div className="award-icon">{a.icon}</div>
-              <div>
-                <h4>{a.title}</h4>
-                <p>{a.sub}</p>
-              </div>
-            </div>
-          ))}
+        <FadeIn className="recognition-group">
+          <h4 className="recognition-heading">Awards</h4>
+          <ul className="recognition-list">
+            {awards.map((a) => (
+              <li key={a.title}>
+                <strong>{a.title}</strong>
+                <span>{a.sub}</span>
+              </li>
+            ))}
+          </ul>
+        </FadeIn>
+
+        <FadeIn className="recognition-group">
+          <h4 className="recognition-heading">Volunteering & Leadership</h4>
+          <ul className="recognition-list">
+            {volunteering.map((v) => (
+              <li key={v.title}>
+                <strong>{v.title}</strong>
+                <span>{v.sub}</span>
+              </li>
+            ))}
+          </ul>
         </FadeIn>
       </div>
     </section>

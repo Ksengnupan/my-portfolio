@@ -20,11 +20,10 @@ export default function Contact() {
       <div className="container">
         <div className="contact-wrapper">
           <FadeIn className="contact-info">
-            <p className="section-label">Contact</p>
-            <h3>Let&apos;s Work Together</h3>
+            <p className="section-label">Get in touch</p>
+            <h3>Let&apos;s build something together</h3>
             <p>
-              I&apos;m always open to discussing AI projects, research
-              collaborations, or new opportunities. Feel free to reach out!
+              My inbox is always open - whether it&apos;s a project to build together, a research collaboration, or suggestions, just drop me a mail.
             </p>
             <div className="contact-links">
               <a
