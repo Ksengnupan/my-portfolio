@@ -16,7 +16,7 @@ const jobs: Job[] = [
     company: "ArcFusion • Bangkok, Thailand",
     companyUrl: "https://www.arcfusion.ai/",
     bullets: ["Building GenAI solutions and production systems"],
-    tags: ["Python", "NextJs", "LLM", "RAG", "LangChain", "Docker", "Google Cloud", "AWS"],
+    tags: ["Python", "Next.js", "LLM", "RAG", "LangChain", "Docker", "Google Cloud"],
   },
   {
     date: "March 2024 — May 2025",
@@ -69,7 +69,7 @@ const jobs: Job[] = [
       "Reached 100+ students",
       "Academic mentoring and guidance",
     ],
-    tags: ["Java", "OOP", "Data Structures", "Teaching Assistant"],
+    tags: ["Java", "OOP", "Data Structures"],
   },
 ];
 

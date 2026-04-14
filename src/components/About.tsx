@@ -23,7 +23,7 @@ export default function About() {
               than I ever expected I believe.
             </p>
             <p>
-              That mindset shaped my academic path. I earned my Master&apos;s
+              This mindset helped shaped my academic path. I earned my Master&apos;s
               in AI &amp; IoT at{" "}
               <a
                 href="https://www.siit.tu.ac.th/"

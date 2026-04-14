@@ -16,7 +16,7 @@ const projects: Project[] = [
     icon: "🛡️",
     company: "Cynclair (R V Connex)",
     date: "Sep 2024 - Feb 2025",
-    title: "LLM-Powered Cybersecurity Assistant (Explainable AI)",
+    title: "LLM-Powered Cybersecurity Assistant",
     description:
       "Production-grade investigation system for cybersecurity incidents using Neo4j knowledge graphs, Cypher queries, and LLMs over AWS infrastructure.",
     achievements: [
@@ -25,6 +25,7 @@ const projects: Project[] = [
       "Integrated with AWS architecture",
     ],
     tags: ["LLM", "RAG", "Neo4j", "PostgreSQL", "AWS", "Python"],
+    featured: true,
   },
   {
     icon: "📄",
@@ -38,7 +39,7 @@ const projects: Project[] = [
       "User-friendly Streamlit interface",
       "HuggingFace embeddings integration",
     ],
-    tags: ["Qwen2", "RAG", "Langchain", "ChromaDB", "Streamlit"],
+    tags: ["Qwen2", "RAG", "LangChain", "ChromaDB", "Streamlit"],
   },
   {
     icon: "🌫️",
@@ -52,7 +53,7 @@ const projects: Project[] = [
       "Advanced LSTM / Bi-LSTM models",
       "End-to-end data integration pipeline",
     ],
-    tags: ["Python", "TensorFlow", "LSTM", "Bi-LSTM", "Time-series"],
+    tags: ["Python", "LSTM", "TensorFlow", "NASA", "Data Science"],
   },
   {
     icon: "🚂",
@@ -78,7 +79,7 @@ export default function Projects() {
           Featured Projects
         </FadeIn>
         <FadeIn as="h2" className="section-title">
-          What I&apos;ve Built to learn and explore
+          What I&apos;ve Built
         </FadeIn>
         <FadeIn as="p" className="section-subtitle">
           A selection of projects showcasing my work across LLM engineering and development.
