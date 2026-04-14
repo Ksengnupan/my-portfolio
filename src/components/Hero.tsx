@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="container hero-container">
         <div className="hero-content">
           <span className="hero-greeting">
-            Hi <span className="wave"></span> I&apos;m Seng Nu Pan Kumgyi - you can call me <strong>Pan</strong>.
+            Hi <span className="wave"></span> I&apos;m Seng Nu Pan Kumgyi.
           </span>
 
           <h1>
@@ -20,12 +20,12 @@ export default function Hero() {
             Whether it&apos;s architecting <span className="highlight">complex AI solutions</span> or staying home and <span className="highlight">cooking</span> a perfect meal, I find joy in the process.
           </p>
 
-          <p className="hero-tagline">
+          {/* <p className="hero-tagline">
             I am an <span className="highlight">AI engineer and enthusiast</span> who thrives on building <strong>end-to-end</strong> solutions from initial <strong>research</strong> through to <strong>shipping</strong> and <strong>delivery</strong>.
-          </p>
+          </p> */}
 
           <p className="hero-role-line">
-            Currently at{" "}
+            <strong>AI Engineer</strong> @{" "}
             <a
               href="https://www.arcfusion.ai/"
               target="_blank"
@@ -34,16 +34,7 @@ export default function Hero() {
             >
               <strong>ArcFusion</strong>
             </a>{" "}
-            in Bangkok · previously shipped LLM-enabled Explainable AI for cybersecurity investigation at{" "}
-            <a
-              href="https://www.cynclair.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="company-link"
-            >
-              <strong>Cynclair</strong>
-            </a>
-            .
+            · Bangkok, Thailand
           </p>
 
           <div className="hero-buttons">
