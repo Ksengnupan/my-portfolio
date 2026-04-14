@@ -40,7 +40,7 @@ export default function Nav() {
     <nav ref={navRef} className={`nav${scrolled ? " scrolled" : ""}`}>
       <div className="container">
         <a href="#" className="nav-logo">
-          Seng Nu Pan
+          Seng Nu Pan Kumgyi
         </a>
         <ul className={`nav-links${open ? " open" : ""}`}>
           {links.map((l) => (

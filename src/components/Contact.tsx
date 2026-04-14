@@ -1,19 +1,66 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import FadeIn from "./FadeIn";
 
-export default function Contact() {
-  const [sent, setSent] = useState(false);
+type Status = "idle" | "sending" | "sent" | "error";
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+export default function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMsg, setErrorMsg] = useState<string>("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => {
-      setSent(false);
-      (e.target as HTMLFormElement).reset();
-    }, 2500);
+    if (!formRef.current) return;
+
+    // Honeypot: if this hidden field is filled, it's a bot — silently drop
+    const honeypot = (
+      formRef.current.elements.namedItem("company") as HTMLInputElement | null
+    )?.value;
+    if (honeypot) {
+      setStatus("sent");
+      formRef.current.reset();
+      return;
+    }
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setStatus("error");
+      setErrorMsg("Email service is not configured. Please email me directly.");
+      return;
+    }
+
+    setStatus("sending");
+    setErrorMsg("");
+
+    try {
+      await emailjs.sendForm(serviceId, templateId, formRef.current, {
+        publicKey,
+      });
+      setStatus("sent");
+      formRef.current.reset();
+      setTimeout(() => setStatus("idle"), 4000);
+    } catch (err) {
+      setStatus("error");
+      const message =
+        err instanceof Error ? err.message : "Something went wrong.";
+      setErrorMsg(message);
+    }
   };
+
+  const buttonLabel =
+    status === "sending"
+      ? "Sending…"
+      : status === "sent"
+      ? "Message Sent!"
+      : status === "error"
+      ? "Try Again"
+      : "Send Message";
 
   return (
     <section id="contact" className="section-alt">
@@ -23,7 +70,9 @@ export default function Contact() {
             <p className="section-label">Get in touch</p>
             <h3>Let&apos;s build something together</h3>
             <p>
-              My inbox is always open - whether it&apos;s a project to build together, a research collaboration, or suggestions, just drop me a mail.
+              My inbox is always open - whether it&apos;s a project to build
+              together, a research collaboration, or suggestions, just drop me
+              a mail.
             </p>
             <div className="contact-links">
               <a
@@ -59,7 +108,24 @@ export default function Contact() {
           </FadeIn>
 
           <FadeIn className="contact-form-wrap">
-            <form className="contact-form" onSubmit={handleSubmit}>
+            <form
+              ref={formRef}
+              className="contact-form"
+              onSubmit={handleSubmit}
+              noValidate
+            >
+              {/* Honeypot — hidden from real users, bots fill it */}
+              <div aria-hidden="true" className="honeypot">
+                <label htmlFor="company">Company</label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
               <div className="form-group">
                 <label htmlFor="name">Name</label>
                 <input
@@ -89,16 +155,26 @@ export default function Contact() {
                   required
                 />
               </div>
+
+              {status === "error" && (
+                <p className="form-error" role="alert">
+                  {errorMsg || "Couldn't send — please try again or email me directly."}
+                </p>
+              )}
+
               <button
                 type="submit"
                 className="btn btn-primary"
+                disabled={status === "sending"}
                 style={{
                   width: "100%",
                   justifyContent: "center",
-                  background: sent ? "#4CAF50" : undefined,
+                  background: status === "sent" ? "#22c55e" : undefined,
+                  opacity: status === "sending" ? 0.7 : 1,
+                  cursor: status === "sending" ? "wait" : "pointer",
                 }}
               >
-                {sent ? "Message Sent!" : "Send Message"}
+                {buttonLabel}
               </button>
             </form>
           </FadeIn>

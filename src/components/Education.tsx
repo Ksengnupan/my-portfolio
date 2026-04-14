@@ -11,7 +11,7 @@ type EducationItem = {
 const items: EducationItem[] = [
   {
     degree: "M.Eng. in AI & Internet of Things",
-    school: "SIIT, Thammasat University",
+    school: "Sirindhorn International Institute of Technology (SIIT), Thammasat University",
     schoolUrl: "https://www.siit.tu.ac.th/",
     period: "Aug 2022 — Jun 2024",
     detail:
@@ -27,7 +27,7 @@ const items: EducationItem[] = [
   },
   {
     degree: "B.Eng. in Information Science & Technology",
-    school: "University of Technology, Myanmar",
+    school: "University of Technology (Yatanarpon Cyber City), Myanmar",
     schoolUrl: "https://utycc.org/",
     period: "Dec 2013 — Feb 2020",
     detail:

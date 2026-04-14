@@ -13,10 +13,24 @@ type Project = {
 
 const projects: Project[] = [
   {
+    icon: "🛡️",
+    company: "Cynclair (R V Connex)",
+    date: "Sep 2024 - Feb 2025",
+    title: "LLM-Powered Cybersecurity Assistant (Explainable AI)",
+    description:
+      "Production-grade investigation system for cybersecurity incidents using Neo4j knowledge graphs, Cypher queries, and LLMs over AWS infrastructure.",
+    achievements: [
+      "Production-level deployment",
+      "Real-time alert investigation pipeline",
+      "Integrated with AWS architecture",
+    ],
+    tags: ["LLM", "RAG", "Neo4j", "PostgreSQL", "AWS", "Python"],
+  },
+  {
     icon: "📄",
     company: "Personal Project",
     date: "June 2024",
-    title: "Chat with Your Documents — RAG System",
+    title: "Chat with Your Documents - RAG System",
     description:
       "Intelligent document Q&A system that processes PDFs, creates vector stores, and enables natural language queries over your own data.",
     achievements: [
@@ -25,6 +39,20 @@ const projects: Project[] = [
       "HuggingFace embeddings integration",
     ],
     tags: ["Qwen2", "RAG", "Langchain", "ChromaDB", "Streamlit"],
+  },
+  {
+    icon: "🌫️",
+    company: "Master's Thesis — SIIT",
+    date: "Aug 2022 — Jun 2024",
+    title: "Enhancing PM2.5 Prediction in Northern Thailand",
+    description:
+      "Research project integrating NASA satellite data with ground weather stations for enhanced pollutant prediction using deep time-series models.",
+    achievements: [
+      "Published at IEEE iSAI-NLP 2023",
+      "Advanced LSTM / Bi-LSTM models",
+      "End-to-end data integration pipeline",
+    ],
+    tags: ["Python", "TensorFlow", "LSTM", "Bi-LSTM", "Time-series"],
   },
   {
     icon: "🚂",
@@ -50,7 +78,7 @@ export default function Projects() {
           Featured Projects
         </FadeIn>
         <FadeIn as="h2" className="section-title">
-          What I&apos;ve Built
+          What I&apos;ve Built to learn and explore
         </FadeIn>
         <FadeIn as="p" className="section-subtitle">
           A selection of projects showcasing my work across LLM engineering and development.

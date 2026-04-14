@@ -1,14 +1,18 @@
+import Image from "next/image";
+import mePhoto from "./me.jpeg";
+
 export default function Hero() {
   return (
     <section className="hero" id="home">
-      <div className="container">
+      <div className="container hero-container">
         <div className="hero-content">
           <span className="hero-greeting">
-            Hello, my name is Seng Nu Pan Kumgyi <span className="wave"></span>
+            Hi <span className="wave"></span> I&apos;m Seng Nu Pan Kumgyi - you can call me <strong>Pan</strong>.
           </span>
 
           <h1>
-            I enjoy <span className="highlight">solving problems</span>
+            I enjoy{" "}
+            <span className="highlight typewriter">solving problems</span>
             <span className="cursor" aria-hidden="true" />
           </h1>
 
@@ -17,7 +21,7 @@ export default function Hero() {
           </p>
 
           <p className="hero-tagline">
-            I am an <span className="highlight">AI engineer and enthusiast</span> who thrives on building <strong>end-to-end</strong> solutions — from initial <strong>research</strong> through to <strong>shipping</strong> and <strong>delivery</strong>.
+            I am an <span className="highlight">AI engineer and enthusiast</span> who thrives on building <strong>end-to-end</strong> solutions from initial <strong>research</strong> through to <strong>shipping</strong> and <strong>delivery</strong>.
           </p>
 
           <p className="hero-role-line">
@@ -44,9 +48,19 @@ export default function Hero() {
 
           <div className="hero-buttons">
             <a href="#contact" className="btn btn-primary">
-              Let&apos;s get in touch — Say hello
+              Let&apos;s get in touch
             </a>
           </div>
+        </div>
+
+        <div className="hero-photo">
+          <Image
+            src={mePhoto}
+            alt="Seng Nu Pan Kumgyi"
+            priority
+            placeholder="blur"
+            sizes="(max-width: 900px) 220px, (max-width: 1100px) 320px, 400px"
+          />
         </div>
       </div>
     </section>

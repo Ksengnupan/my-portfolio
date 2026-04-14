@@ -49,7 +49,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          &copy; {new Date().getFullYear()} Seng Nu Pan Kumgyi.
+          &copy; {new Date().getFullYear()} Seng Nu Pan Kumgyi. All rights reserved.
         </div>
       </div>
     </footer>
