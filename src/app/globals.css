@@ -172,15 +172,7 @@ h1, h2, h3, h4 {
 
 .nav-cta::after { display: none !important; }
 
-.nav-cta::before {
-  content: "";
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
-}
+.nav-cta::before { display: none; }
 
 .nav-cta:hover {
   color: var(--white) !important;
@@ -190,9 +182,6 @@ h1, h2, h3, h4 {
   transform: translateY(-1px);
 }
 
-.nav-cta:hover::before {
-  background: var(--white);
-}
 
 /* Mobile menu toggle */
 .nav-toggle {

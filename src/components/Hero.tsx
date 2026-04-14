@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="container hero-container">
         <div className="hero-content">
           <span className="hero-greeting">
-            Hi <span className="wave"></span> I&apos;m Seng Nu Pan Kumgyi.
+            Hello <span className="wave"></span> I&apos;m Seng Nu Pan Kumgyi.
           </span>
 
           <h1>
@@ -17,12 +17,11 @@ export default function Hero() {
           </h1>
 
           <p className="hero-tagline">
-            Whether it&apos;s architecting <span className="highlight">complex AI solutions</span> or staying home and <span className="highlight">cooking</span> a perfect meal, I find joy in the process.
+            Whether it&apos;s engineering{" "}
+            <span className="highlight">AI-enabled services and products</span>{" "}
+            or <span className="highlight">cooking</span> a good meal at home,
+            I find joy in the process.
           </p>
-
-          {/* <p className="hero-tagline">
-            I am an <span className="highlight">AI engineer and enthusiast</span> who thrives on building <strong>end-to-end</strong> solutions from initial <strong>research</strong> through to <strong>shipping</strong> and <strong>delivery</strong>.
-          </p> */}
 
           <p className="hero-role-line">
             <strong>AI Engineer</strong> @{" "}
