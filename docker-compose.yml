@@ -1,0 +1,12 @@
+services:
+  portfolio:
+    build: .
+    restart: unless-stopped
+    labels:
+      - sablier.enable=true
+      - sablier.group=portfolio
+      - traefik.enable=true
+      - traefik.http.routers.portfolio.rule=Host(`portfolio.localhost`)
+      - traefik.http.routers.portfolio.entrypoints=web
+      - traefik.http.routers.portfolio.middlewares=sablier-portfolio
+      - traefik.http.services.portfolio.loadbalancer.server.port=3000
