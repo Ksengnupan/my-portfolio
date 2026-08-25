@@ -2,11 +2,16 @@ services:
   portfolio:
     build: .
     restart: unless-stopped
+    networks:
+      - dokploy-network
     labels:
+      # Sablier discovers this container via the Docker API (works even when stopped).
+      # Routing lives in Traefik's dynamic file config, NOT labels: Traefik's Docker
+      # provider drops label config when Sablier stops the container, which would
+      # leave a permanent 404 with nothing to wake the app.
       - sablier.enable=true
       - sablier.group=portfolio
-      - traefik.enable=true
-      - traefik.http.routers.portfolio.rule=Host(`portfolio.localhost`)
-      - traefik.http.routers.portfolio.entrypoints=web
-      - traefik.http.routers.portfolio.middlewares=sablier-portfolio
-      - traefik.http.services.portfolio.loadbalancer.server.port=3000
+
+networks:
+  dokploy-network:
+    external: true
