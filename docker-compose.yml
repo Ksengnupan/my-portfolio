@@ -1,7 +1,19 @@
 services:
   portfolio:
-    build: .
+    build:
+      context: .
+      args:
+        # Baked into the browser bundle: URL visitors reach the Rivet Engine on
+        NEXT_PUBLIC_RIVET_ENDPOINT: ${NEXT_PUBLIC_RIVET_ENDPOINT:-http://localhost:6420}
     restart: unless-stopped
+    environment:
+      # Engine connection for the actor worker (namespace:admin-token@host)
+      - RIVET_ENDPOINT=${RIVET_ENDPOINT}
+      # We bring our own engine; never auto-start rivetkit's bundled one
+      - RIVET_RUN_ENGINE=false
+      # LLM for the chatbot actor (set values in Dokploy's Environment tab)
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-5-mini}
     networks:
       - dokploy-network
     labels:

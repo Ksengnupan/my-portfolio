@@ -12,6 +12,11 @@ RUN npm install
 # Copy the rest of the code
 COPY . .
 
+# NEXT_PUBLIC_* values are inlined into the client bundle at build time.
+# This must be a URL the *visitor's browser* can reach the Rivet Engine on.
+ARG NEXT_PUBLIC_RIVET_ENDPOINT
+ENV NEXT_PUBLIC_RIVET_ENDPOINT=$NEXT_PUBLIC_RIVET_ENDPOINT
+
 # Build the Next.js app
 RUN npm run build
 
