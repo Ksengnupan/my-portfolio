@@ -1,5 +1,9 @@
 # 1. Build stage
-FROM node:20-alpine AS builder
+# node 22: required by rivetkit and the ai SDK (engines >=22)
+FROM node:22-alpine AS builder
+
+# Toolchain for native deps (better-sqlite3 ships no musl/arm64 prebuilds)
+RUN apk add --no-cache python3 make g++
 
 WORKDIR /app
 
@@ -21,7 +25,7 @@ ENV NEXT_PUBLIC_RIVET_ENDPOINT=$NEXT_PUBLIC_RIVET_ENDPOINT
 RUN npm run build
 
 # 2. Production stage
-FROM node:20-alpine AS runner
+FROM node:22-alpine AS runner
 
 WORKDIR /app
 
